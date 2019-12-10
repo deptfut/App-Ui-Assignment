@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'Utils.dart';
+import './Utils.dart';
 import 'package:pakacademy/LoginPage.dart';
 
 class LandingPage extends StatelessWidget {

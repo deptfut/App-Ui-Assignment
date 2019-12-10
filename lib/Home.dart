@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pakacademy/Assignments.dart';
 //import 'Commons.dart';
 
 class Home extends StatelessWidget {
@@ -52,11 +52,11 @@ class Home extends StatelessWidget {
                child:  Image.asset("assets/drawer-image.png"),
              )
            ),
-          Container(
-            margin: EdgeInsets.only(top: 28.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+           Container(
+              margin: EdgeInsets.only(top: 28.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
                 ListTile(
                   title: Text('Dashbord', style: TextStyle(
                     fontSize: 20.0,
@@ -70,6 +70,7 @@ class Home extends StatelessWidget {
                     );*/
                   },
                 ),
+                Divider(color: Colors.black26),
                 ListTile(
                   title: Text('Assignments', style: TextStyle(
                     fontSize: 20.0,
@@ -77,12 +78,12 @@ class Home extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   )),
                   onTap: () {
-                    /*Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Home()),
-                    );*/
-                  },
+                    Navigator.of(context).pop();
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => Assignments()));
+                  }
                 ),
+                Divider(color: Colors.black26),
                 ListTile(
                   title: Text('Programs', style: TextStyle(
                     fontSize: 20.0,
@@ -96,6 +97,7 @@ class Home extends StatelessWidget {
                     );*/
                   },
                 ),
+                Divider(color: Colors.black26),
                 ListTile(
                   title: Text('Logut', style: TextStyle(
                     fontSize: 20.0,
@@ -110,25 +112,24 @@ class Home extends StatelessWidget {
                   },
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 20.0, right: 15.0,  bottom: 20.0, left: 15.0),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF1DBC60),
-                  ),
-                  child: Stack(
+                  padding: EdgeInsets.symmetric(horizontal: 18.0, vertical: 15.0),
+                  color: Color(0xFF1DBC60),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Icon(Icons.call, color: Colors.white),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Icon(Icons.call, color: Colors.white),
+                        ],
                       ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          "+92 33323532373", style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 21.0,
-                            fontWeight: FontWeight.bold
-                        ),
-                        ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          Text("+92 33323532373", textAlign: TextAlign.right, style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.bold
+                          ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -141,7 +142,7 @@ class Home extends StatelessWidget {
      ),
 
      body: Container(
-       margin: EdgeInsets.only(top: 25,),
+       margin: EdgeInsets.only(top: 20,),
        padding: EdgeInsets.only(left: 20, right: 20),
        child: Column(
          crossAxisAlignment: CrossAxisAlignment.start,
@@ -159,10 +160,10 @@ class Home extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(top: 20, bottom: 22),
                     child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Container(
-                          margin: EdgeInsets.only(right: 21),
+                          margin: EdgeInsets.only(right: 0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(12.0)),
                             color: Colors.white,
@@ -186,6 +187,17 @@ class Home extends StatelessWidget {
                           margin: EdgeInsets.only(right: 0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: 20.0, // has the effect of softening the shadow
+                                spreadRadius: 1.0, // has the effect of extending the shadow
+                                offset: Offset(
+                                  0.0, // horizontal, move right 10
+                                  1.0, // vertical, move down 10
+                                ),
+                              ),
+                            ],
                             color: Color(0xFF1DBC60),
                           ),
                           child: Column(
@@ -371,6 +383,54 @@ class Home extends StatelessWidget {
                           ),
                         ],
                       ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 12.0, bottom: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text("My Programs", style: TextStyle(color: Colors.black,
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            border: Border.all(width: 1, color: Color(0xFFE4E4E4)),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Container(
+                                padding: EdgeInsets.only(left: 15),
+                                child: Text("Flutter Course", style: TextStyle(color: Color(0xFF353535),
+                                    fontSize: 16, fontWeight: FontWeight.bold)
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF1DBC60),
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(5.0),
+                                      bottomRight: Radius.circular(5.0)
+                                  ),
+                                ),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 18, vertical: 20),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      Text("3 Months", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
+                                      Text("3 Months", style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
